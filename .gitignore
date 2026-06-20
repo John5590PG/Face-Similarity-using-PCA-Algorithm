@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Streamlit local configs (optional)
+.streamlit/
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
