@@ -252,7 +252,7 @@ def render_sidebar():
     st.sidebar.subheader("Pengaturan Decision")
 
     # Nilai ambang batas kemiripan
-    default_thr = 0.68 if getattr(st.session_state.model, "feature_mode", "pixel") == "fusion" else 0.21
+    default_thr = 0.37 if getattr(st.session_state.model, "feature_mode", "pixel") == "fusion" else 0.21
     new_thr = st.sidebar.slider(
         "Threshold (Ambang Batas)",
         min_value=-1.0, max_value=1.0,
@@ -717,7 +717,7 @@ def render_compare_tab():
         st.session_state.compare_z_a = None
         st.session_state.compare_z_b = None
         st.session_state.compare_z_a_orig = None
-        st.session_state.compare_use_aging = False
+        st.session_state.compare_use_aging = True
         st.session_state.compare_aging_scale = 0.5
         st.session_state.compare_prob_asian = 0.80
         st.session_state.compare_foto_a_name = ""
@@ -767,14 +767,14 @@ def render_compare_tab():
     # parameter fusi
     alpha = 0.3
     beta = 0.4
-    gamma = 0.3
+    gamma = 0.6
     penalty_factor = 0.05
     
     if getattr(st.session_state.model, "feature_mode", "pixel") == "fusion":
         with st.expander("⚖️ Bobot Sensor Fusion (LBP + HOG + Pixel)", expanded=True):
             alpha = st.slider("Bobot LBP (Tekstur)", 0.0, 2.0, 0.3, 0.1, help="Bobot kemiripan tekstur.")
             beta = st.slider("Bobot HOG (Bentuk)", 0.0, 2.0, 0.4, 0.1, help="Bobot kemiripan tepi geometri.")
-            gamma = st.slider("Bobot Pixel (Intensitas)", 0.0, 2.0, 0.3, 0.1, help="Bobot kemiripan intensitas kasar.")
+            gamma = st.slider("Bobot Pixel (Intensitas)", 0.0, 2.0, 0.6, 0.1, help="Bobot kemiripan intensitas kasar.")
             penalty_factor = st.slider("Faktor Penalti Euclidean", 0.01, 0.20, 0.05, 0.01)
     else:
         with st.expander("⚙️ Parameter Jarak & Penalti", expanded=False):
