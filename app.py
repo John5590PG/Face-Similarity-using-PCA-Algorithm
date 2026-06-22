@@ -298,6 +298,30 @@ def render_sidebar():
         reset_model()
         st.rerun()
 
+    st.sidebar.divider()
+    st.sidebar.markdown(
+        """
+        <a href="https://pca-image-compreappr-npbzanhnqbxifujrqvbvf7.streamlit.app/"
+           target="_blank"
+           style="
+               display: block;
+               text-align: center;
+               background-color: #1F3864;
+               color: #FFD700;
+               padding: 8px 12px;
+               border-radius: 6px;
+               font-weight: bold;
+               font-size: 14px;
+               text-decoration: none;
+               margin-top: 4px;
+           ">
+            🏰 Buka PCA Image Compressor
+        </a>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.sidebar.caption("Aplikasi kompresi gambar berbasis PCA ↗")
+
 
 # ============================================================
 # TAB TRAIN
